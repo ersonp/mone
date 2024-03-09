@@ -4,20 +4,10 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
-	import * as Select from '$lib/components/ui/select';
 	import * as Card from '$lib/components/ui/card';
 	import * as RadioGroup from '$lib/components/ui/radio-group';
 
 	let selectedBackend = 'api';
-	const databases = [
-		{ value: 'database-1', label: 'Database 1' },
-		{ value: 'database-2', label: 'Database 2' },
-		{ value: 'new', label: 'New Database' }
-	];
-	let selectedDatabase = '';
-	const handleSelectChange = (event: CustomEvent<string>) => {
-		selectedDatabase = event.detail;
-	};
 </script>
 
 <Card.Root>
