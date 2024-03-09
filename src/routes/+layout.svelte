@@ -16,7 +16,7 @@
 </div>
 
 <div class="container h-full w-full flex flex-col justify-center items-center">
-	<nav class="w-full flex justify-between pt-2">
+	<nav class="w-full flex justify-between pt-6">
 		<div class="ml-auto">
 			<Button on:click={toggleMode} variant="outline" size="icon">
 				<Sun
