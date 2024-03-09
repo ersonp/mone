@@ -5,9 +5,15 @@
 	import Moon from 'svelte-radix/Moon.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { ModeWatcher, toggleMode } from 'mode-watcher';
+	import { appWindow } from '@tauri-apps/api/window';
 </script>
 
 <ModeWatcher />
+
+<!-- dragable titlebar for mac -->
+<div>
+	<div class="absolute top-0 h-8 w-full" data-tauri-drag-region />
+</div>
 
 <div class="container h-full w-full flex flex-col justify-center items-center">
 	<nav class="w-full flex justify-between pt-2">

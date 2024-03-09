@@ -11,8 +11,20 @@
 		"version": "0.1.0"
 	},
 	"tauri": {
+		"macOSPrivateApi": true,
 		"allowlist": {
-			"all": false
+			"all": false,
+			"window": {
+				"all": false,
+				"close": true,
+				"hide": true,
+				"show": true,
+				"maximize": true,
+				"minimize": true,
+				"unmaximize": true,
+				"unminimize": true,
+				"startDragging": true
+			}
 		},
 		"bundle": {
 			"active": true,
@@ -59,7 +71,10 @@
 				"height": 600,
 				"resizable": true,
 				"title": "mone",
-				"width": 800
+				"width": 800,
+				"decorations": true,
+				"titleBarStyle": "Overlay",
+				"hiddenTitle": true
 			}
 		]
 	}
