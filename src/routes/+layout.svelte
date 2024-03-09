@@ -9,8 +9,8 @@
 
 <ModeWatcher />
 
-<div class="container h-full mx-auto flex flex-col justify-center items-center">
-	<nav class="w-full flex justify-between items-center p-4">
+<div class="container h-full w-full flex flex-col justify-center items-center">
+	<nav class="w-full flex justify-between items-center">
 		<div class="text-2xl font-bold">Mone</div>
 		<div>
 			<Button on:click={toggleMode} variant="outline" size="icon">
@@ -24,7 +24,7 @@
 			</Button>
 		</div>
 	</nav>
-	<div class="flex-grow flex justify-center items-center">
+	<main class="flex-grow flex justify-center items-center">
 		<slot />
-	</div>
+	</main>
 </div>
