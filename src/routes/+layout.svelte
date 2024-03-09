@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.pcss';
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import Sun from 'svelte-radix/Sun.svelte';
 	import Moon from 'svelte-radix/Moon.svelte';
 	import { Button } from '$lib/components/ui/button';
