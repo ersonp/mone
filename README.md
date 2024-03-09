@@ -36,3 +36,12 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+# Improvements
+- [ ] Local Database Improvements
+    - [ ] Add a way to Backup the data base
+    - [ ] Restore database from landing page
+    - [ ] Create new database from landing page
+    - [ ] Select databases from landing page
+- [ ] API
+    - [ ] Add a check to see if the URL is valid
