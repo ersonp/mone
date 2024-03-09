@@ -68,10 +68,12 @@
 		"windows": [
 			{
 				"fullscreen": false,
-				"height": 600,
 				"resizable": true,
 				"title": "mone",
+				"height": 600,
 				"width": 800,
+				"minWidth": 500,
+				"minHeight": 500,
 				"decorations": true,
 				"titleBarStyle": "Overlay",
 				"hiddenTitle": true
