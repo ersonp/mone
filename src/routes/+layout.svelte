@@ -10,9 +10,8 @@
 <ModeWatcher />
 
 <div class="container h-full w-full flex flex-col justify-center items-center">
-	<nav class="w-full flex justify-between items-center pt-2">
-		<div class="text-2xl font-bold">Mone</div>
-		<div>
+	<nav class="w-full flex justify-between pt-2">
+		<div class="ml-auto">
 			<Button on:click={toggleMode} variant="outline" size="icon">
 				<Sun
 					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
