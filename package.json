@@ -24,11 +24,12 @@
 		"@types/node": "20.11.25",
 		"@typescript-eslint/eslint-plugin": "^7.0.0",
 		"@typescript-eslint/parser": "^7.0.0",
-		"autoprefixer": "10.4.18",
+		"autoprefixer": "^10.4.16",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
-		"postcss": "8.4.35",
+		"postcss": "^8.4.32",
+		"postcss-load-config": "^5.0.2",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
 		"svelte": "^4.2.7",
@@ -41,6 +42,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"npx": "^10.2.2"
+		"clsx": "^2.1.0",
+		"npx": "^10.2.2",
+		"svelte-radix": "^1.0.3",
+		"tailwind-merge": "^2.2.1",
+		"tailwind-variants": "^0.2.0"
 	}
 }

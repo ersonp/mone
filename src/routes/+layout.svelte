@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.pcss';
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 </script>
