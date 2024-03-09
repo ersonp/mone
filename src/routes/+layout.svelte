@@ -10,7 +10,7 @@
 <ModeWatcher />
 
 <div class="container h-full w-full flex flex-col justify-center items-center">
-	<nav class="w-full flex justify-between items-center">
+	<nav class="w-full flex justify-between items-center pt-2">
 		<div class="text-2xl font-bold">Mone</div>
 		<div>
 			<Button on:click={toggleMode} variant="outline" size="icon">
