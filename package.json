@@ -45,10 +45,13 @@
 		"@tauri-apps/api": "^1.5.3",
 		"bits-ui": "^0.19.5",
 		"clsx": "^2.1.0",
+		"cmdk-sv": "^0.0.15",
 		"mode-watcher": "^0.2.2",
 		"npx": "^10.2.2",
+		"svelte-headless-table": "^0.18.2",
 		"svelte-radix": "^1.0.3",
 		"tailwind-merge": "^2.2.1",
-		"tailwind-variants": "^0.2.0"
+		"tailwind-variants": "^0.2.0",
+		"zod": "^3.22.4"
 	}
 }
