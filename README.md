@@ -1,6 +1,20 @@
 # Mone
 
 ## Developing
+Install dependencies
+```bash
+npm install
+```
+
+Check linting
+```bash
+npm run lint
+```
+
+Format
+```bash
+npm run format
+```
 
 Start a development server:
 ```bash
