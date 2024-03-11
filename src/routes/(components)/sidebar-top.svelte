@@ -14,7 +14,7 @@
 				? undefined
 				: 'items-center justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
 				.url.pathname === '/savings'
-				? 'bg-primary-foreground rounded'
+				? 'bg-primary-foreground rounded border'
 				: undefined}"
 		>
 			<SketchLogo />
@@ -27,7 +27,7 @@
 				? undefined
 				: 'items-center justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
 				.url.pathname === '/accounts'
-				? 'bg-primary-foreground rounded'
+				? 'bg-primary-foreground rounded border'
 				: undefined}"
 		>
 			<Input />
@@ -40,7 +40,7 @@
 				? undefined
 				: 'items-center justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
 				.url.pathname === '/insights'
-				? 'bg-primary-foreground rounded'
+				? 'bg-primary-foreground rounded border'
 				: undefined}"
 		>
 			<PieChart />

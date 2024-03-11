@@ -38,7 +38,7 @@
 	</Collapsible.Root>
 
 	<aside
-		class="{isOpen ? 'w-1/5' : undefined} hidden md:block min-h-screen bg-accent relative group"
+		class="{isOpen ? 'w-1/5' : undefined} hidden md:block min-h-screen relative group border-r"
 	>
 		<nav class="top-0 py-8 px-2 w-full relative flex flex-col justify-between h-full">
 			<div
