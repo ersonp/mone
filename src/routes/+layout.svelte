@@ -17,7 +17,7 @@
 	<div class="absolute top-0 h-8 w-full z-50" data-tauri-drag-region />
 </div>
 
-<div class="flex flex-row w-full h-full">
+<div class="flex flex-col md:flex-row w-full h-full">
 	<Sidebar />
 	<div class="w-full h-auto text-lg flex-grow z-49">
 		<slot />
