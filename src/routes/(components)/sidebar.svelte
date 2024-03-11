@@ -36,6 +36,7 @@
 			</div>
 		</Collapsible.Content>
 	</Collapsible.Root>
+
 	<aside
 		class="{isOpen ? 'w-1/5' : undefined} hidden md:block min-h-screen bg-accent relative group"
 	>
