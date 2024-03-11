@@ -9,7 +9,6 @@
 
 <ModeWatcher />
 
-<!-- dragable titlebar for mac -->
 <div>
 	<div class="absolute top-0 h-8 w-full z-50" data-tauri-drag-region />
 </div>
