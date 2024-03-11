@@ -15,7 +15,7 @@
 <aside class="{isOpen ? 'w-1/5' : ''} min-h-screen bg-accent relative group">
 	<div class="top-0 pt-12 px-2 w-full h-full relative">
 		<div class=" top-1/2 -right-6 transform -translate-y-1/2 mx-4 hidden group-hover:flex absolute">
-			<Button on:click={toggleSidebar} variant="outline" size="icon" style="padding: 10px;">
+			<Button on:click={toggleSidebar} variant="outline" size="icon" class="w-5">
 				{#if isOpen}
 					<ChevronLeftProps class="absolute h-[1.2rem] w-[1.2rem]" />
 				{:else}
