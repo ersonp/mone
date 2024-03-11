@@ -7,7 +7,6 @@
 	import SidebarTop from './sidebar-top.svelte';
 	import SidebarBottom from './sidebar-bottom.svelte';
 	import * as Collapsible from '$lib/components/ui/collapsible';
-	import CaretSort from 'svelte-radix/CaretSort.svelte';
 	let isOpen = true;
 
 	$: isRoot = $page.url.pathname === '/';
