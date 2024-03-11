@@ -9,13 +9,9 @@
 	export let isOpen: boolean;
 </script>
 
-<ul
-	class="{isOpen
-		? 'flex-row space-x-2 justify-between'
-		: 'flex-col space-y-2'} flex overflow-hidden px-2"
->
-	<div class={isOpen ? 'flex flex-row space-x-2' : 'space-y-2'}>
-		<li class="flex items-center justify-center">
+<ul class="{isOpen ? undefined : 'md:flex-col'} flex overflow-hidden px-2 flex-row justify-between">
+	<div class="{isOpen ? undefined : 'md:block'} flex flex-row">
+		<li class="flex items-center justify-center p-1">
 			<Button on:click={toggleMode} variant="outline" size="icon">
 				<Sun
 					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
@@ -26,14 +22,14 @@
 				<span class="sr-only">Toggle theme</span>
 			</Button>
 		</li>
-		<li class="flex items-center justify-center">
+		<li class="flex items-center justify-center p-1">
 			<Button variant="outline" size="icon">
 				<Gear class="h-[1.2rem] w-[1.2rem]" />
 				<span class="sr-only">Settings</span>
 			</Button>
 		</li>
 	</div>
-	<li class="flex items-center justify-center">
+	<li class="flex items-center justify-center p-1">
 		<Button variant="outline" size="icon">
 			<Avatar class="h-[1.2rem] w-[1.2rem]" />
 			<span class="sr-only">Profile</span>

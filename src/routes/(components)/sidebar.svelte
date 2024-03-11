@@ -40,7 +40,7 @@
 	<aside
 		class="{isOpen ? 'w-1/5' : undefined} hidden md:block min-h-screen relative group border-r"
 	>
-		<nav class="top-0 py-8 px-2 w-full relative flex flex-col justify-between h-full">
+		<nav class="top-0 pt-8 pb-5 px-2 w-full relative flex flex-col justify-between h-full">
 			<div
 				class=" top-1/2 -right-6 transform -translate-y-1/2 mx-4 hidden group-hover:flex absolute"
 			>
