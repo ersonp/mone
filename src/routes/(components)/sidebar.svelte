@@ -44,8 +44,10 @@
 						? 'bg-primary-foreground rounded'
 						: undefined}"
 				>
-					<SketchLogo />
-					<span class={isOpen ? 'pl-4' : 'hidden'}> Savings </span>
+					<a href="/savings" class="flex">
+						<SketchLogo />
+						<span class={isOpen ? 'pl-4' : 'hidden'}> Savings </span>
+					</a>
 				</li>
 				<li
 					class="{isOpen
@@ -55,8 +57,10 @@
 						? 'bg-primary-foreground rounded'
 						: undefined}"
 				>
-					<Input />
-					<span class={isOpen ? 'pl-4' : 'hidden'}> Accounts </span>
+					<a href="/accounts" class="flex">
+						<Input />
+						<span class={isOpen ? 'pl-4' : 'hidden'}> Accounts </span>
+					</a>
 				</li>
 				<li
 					class="{isOpen
@@ -66,8 +70,10 @@
 						? 'bg-primary-foreground rounded'
 						: undefined}"
 				>
-					<PieChart />
-					<span class={isOpen ? 'pl-4' : 'hidden'}> Insights </span>
+					<a href="/insights" class="flex">
+						<PieChart />
+						<span class={isOpen ? 'pl-4' : 'hidden'}> Insights </span>
+					</a>
 				</li>
 			</ul>
 			<ul
