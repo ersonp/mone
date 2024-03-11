@@ -5,7 +5,6 @@
 	import Moon from 'svelte-radix/Moon.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { ModeWatcher, toggleMode } from 'mode-watcher';
-	import { appWindow } from '@tauri-apps/api/window';
 </script>
 
 <ModeWatcher />
