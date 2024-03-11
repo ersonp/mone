@@ -12,11 +12,11 @@
 
 <!-- dragable titlebar for mac -->
 <div>
-	<div class="absolute top-0 h-8 w-full" data-tauri-drag-region />
+	<div class="absolute top-0 h-8 w-full z-50" data-tauri-drag-region />
 </div>
 
-<div class="container h-full w-full flex flex-col justify-center items-center">
-	<nav class="w-full flex justify-between pt-6">
+<div class="flex flex-row w-full h-full">
+	<nav class="flex justify-between pt-6">
 		<div class="ml-auto">
 			<Button on:click={toggleMode} variant="outline" size="icon">
 				<Sun
@@ -29,7 +29,7 @@
 			</Button>
 		</div>
 	</nav>
-	<main class="flex-grow flex justify-center items-center">
+	<div class="w-full h-auto text-lg flex-grow">
 		<slot />
-	</main>
+	</div>
 </div>
