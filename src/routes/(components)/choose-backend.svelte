@@ -6,6 +6,7 @@
 	import { Label } from '$lib/components/ui/label';
 	import * as Card from '$lib/components/ui/card';
 	import * as RadioGroup from '$lib/components/ui/radio-group';
+	import { goto } from '$app/navigation';
 
 	let selectedBackend = 'api';
 </script>
@@ -42,6 +43,6 @@
 		{/if}
 	</Card.Content>
 	<Card.Footer>
-		<Button class="w-full">Continue</Button>
+		<Button class="w-full" on:click={() => goto('/investments')}>Continue</Button>
 	</Card.Footer>
 </Card.Root>
