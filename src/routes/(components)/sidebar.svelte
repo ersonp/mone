@@ -40,7 +40,7 @@
 					class="{isOpen
 						? undefined
 						: 'items-center justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
-						.url.pathname === '/investments'
+						.url.pathname === '/savings'
 						? 'bg-primary-foreground rounded'
 						: undefined}"
 				>
