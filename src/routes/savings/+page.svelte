@@ -4,7 +4,7 @@
 	import data from './(data)/tasks.json';
 </script>
 
-<div class="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
+<div class="h-full flex-1 flex-col space-y-8 p-8">
 	<div class="flex items-center justify-between space-y-2">
 		<div>
 			<h2 class="text-2xl font-bold tracking-tight">Welcome back!</h2>
