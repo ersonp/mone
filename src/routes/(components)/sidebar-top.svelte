@@ -7,14 +7,14 @@
 	export let isOpen: boolean;
 </script>
 
-<ul class="flex flex-col overflow-hidden space-y-2 px-2">
+<ul class="flex flex-col overflow-hidden space-y-2 px-3">
 	<a href="/savings">
 		<li
 			class="{isOpen
 				? undefined
-				: 'md:items-center md:justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
+				: 'md:items-center md:justify-center'} flex p-2 hover:bg-primary hover:text-secondary hover:rounded {$page
 				.url.pathname === '/savings'
-				? 'bg-primary-foreground rounded border'
+				? 'bg-primary text-secondary rounded '
 				: undefined}"
 		>
 			<SketchLogo />
@@ -25,9 +25,9 @@
 		<li
 			class="{isOpen
 				? undefined
-				: 'md:items-center md:justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
+				: 'md:items-center md:justify-center'} flex p-2 hover:bg-primary hover:text-secondary hover:rounded {$page
 				.url.pathname === '/accounts'
-				? 'bg-primary-foreground rounded border'
+				? 'bg-primary text-secondary rounded '
 				: undefined}"
 		>
 			<Input />
@@ -38,9 +38,9 @@
 		<li
 			class="{isOpen
 				? undefined
-				: 'md:items-center md:justify-center'} flex p-2 hover:bg-primary-foreground hover:rounded {$page
+				: 'md:items-center md:justify-center'} flex p-2 hover:bg-primary hover:text-secondary hover:rounded {$page
 				.url.pathname === '/insights'
-				? 'bg-primary-foreground rounded border'
+				? 'bg-primary text-secondary rounded'
 				: undefined}"
 		>
 			<PieChart />
