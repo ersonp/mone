@@ -1,6 +1,6 @@
 import CheckCircled from "svelte-radix/CheckCircled.svelte";
 import CrossCircled from "svelte-radix/CrossCircled.svelte";
-import Circle from "svelte-radix/Circle.svelte";
+import Symbol from "svelte-radix/Symbol.svelte";
 import Avatar from "svelte-radix/Avatar.svelte";
 import PinTop from "svelte-radix/PinTop.svelte";
 import Stopwatch from "svelte-radix/Stopwatch.svelte";
@@ -25,7 +25,7 @@ export const statuses = [
     {
         value: "Renewed",
         label: "Renewed",
-        icon: Circle,
+        icon: Symbol,
     },
     {
         value: "Active",
