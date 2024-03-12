@@ -5,7 +5,7 @@ import Avatar from "svelte-radix/Avatar.svelte";
 import PinTop from "svelte-radix/PinTop.svelte";
 import Stopwatch from "svelte-radix/Stopwatch.svelte";
 
-export const labels = [
+export const invTypes = [
     {
         value: "FD",
         label: "FD",

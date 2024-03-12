@@ -85,7 +85,7 @@
 				if (row.isData()) {
 					return createRender(DataTableTitleCell, {
 						value,
-						labelValue: row.original.label
+						labelValue: row.original.inv_type
 					});
 				}
 				return value;

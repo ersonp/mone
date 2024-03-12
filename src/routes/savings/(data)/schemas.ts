@@ -10,7 +10,7 @@ export const taskSchema = z.object({
         }),
     }),
     title: z.string(),
-    label: z.string(),
+    inv_type: z.string(),
     name: z.string(),
     inv_status: z.string(),
 });

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Badge } from '$lib/components/ui/badge';
-	import { labels } from '../(data)/data.js';
+	import { invTypes } from '../(data)/data.js';
 
 	export let value: string;
 	export let labelValue: string;
-	const label = labels.find((label) => label.value === labelValue);
+	const label = invTypes.find((label) => label.value === labelValue);
 </script>
 
 <div class="flex space-x-2">
