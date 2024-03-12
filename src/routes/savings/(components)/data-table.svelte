@@ -42,6 +42,32 @@
 
 	const columns = table.createColumns([
 		table.column({
+			accessor: 'start_date',
+			header: 'Start Date',
+			id: 'start-date',
+			cell: ({ value }) => {
+				const date = new Date(value);
+				return date.toLocaleDateString('en-US', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric'
+				});
+			}
+		}),
+		table.column({
+			accessor: 'end_date',
+			header: 'End Date',
+			id: 'end-date',
+			cell: ({ value }) => {
+				const date = new Date(value);
+				return date.toLocaleDateString('en-US', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric'
+				});
+			}
+		}),
+		table.column({
 			accessor: 'inv_name',
 			header: 'Inv Name',
 			id: 'inv-name',
