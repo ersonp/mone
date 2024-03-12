@@ -15,7 +15,7 @@
 		DataTableTitleCell,
 		DataTableStatusCell,
 		DataTableRowActions,
-		DataTablePriorityCell,
+		DataTableNameCell,
 		DataTableColumnHeader,
 		DataTableToolbar,
 		DataTablePagination
@@ -117,11 +117,11 @@
 			}
 		}),
 		table.column({
-			accessor: 'priority',
-			id: 'priority',
-			header: 'Priority',
+			accessor: 'name',
+			id: 'name',
+			header: 'Name',
 			cell: ({ value }) => {
-				return createRender(DataTablePriorityCell, {
+				return createRender(DataTableNameCell, {
 					value
 				});
 			},

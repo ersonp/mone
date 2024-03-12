@@ -1,69 +1,63 @@
-import ArrowDown from "svelte-radix/ArrowDown.svelte";
-import ArrowRight from "svelte-radix/ArrowRight.svelte";
-import ArrowUp from "svelte-radix/ArrowUp.svelte";
 import CheckCircled from "svelte-radix/CheckCircled.svelte";
-import Circle from "svelte-radix/Circle.svelte";
 import CrossCircled from "svelte-radix/CrossCircled.svelte";
-import QuestionMarkCircled from "svelte-radix/QuestionMarkCircled.svelte";
+import Circle from "svelte-radix/Circle.svelte";
+import Avatar from "svelte-radix/Avatar.svelte";
+import PinTop from "svelte-radix/PinTop.svelte";
 import Stopwatch from "svelte-radix/Stopwatch.svelte";
 
 export const labels = [
     {
-        value: "bug",
-        label: "Bug",
+        value: "FD",
+        label: "FD",
     },
     {
-        value: "feature",
-        label: "Feature",
-    },
-    {
-        value: "documentation",
-        label: "Documentation",
+        value: "RD",
+        label: "RD",
     },
 ];
 
 export const statuses = [
     {
-        value: "backlog",
-        label: "Backlog",
-        icon: QuestionMarkCircled,
+        value: "Withdrawn",
+        label: "Withdrawn",
+        icon: PinTop,
     },
     {
-        value: "todo",
-        label: "Todo",
+        value: "Renewed",
+        label: "Renewed",
         icon: Circle,
     },
     {
-        value: "in progress",
-        label: "In Progress",
+        value: "Active",
+        label: "Active",
         icon: Stopwatch,
     },
     {
-        value: "done",
-        label: "Done",
+        value: "Matured",
+        label: "Matured",
         icon: CheckCircled,
     },
     {
-        value: "canceled",
-        label: "Canceled",
+        value: "Closed",
+        label: "Closed",
         icon: CrossCircled,
     },
 ];
 
-export const priorities = [
+export const names = [
     {
-        label: "Low",
-        value: "low",
-        icon: ArrowDown,
+        label: "Erson",
+        value: "Erson",
+        icon: Avatar,
     },
     {
-        label: "Medium",
-        value: "medium",
-        icon: ArrowRight,
+        label: "Ruxana",
+        value: "Ruxana",
+        icon: Avatar,
     },
     {
-        label: "High",
-        value: "high",
-        icon: ArrowUp,
+        label: "Edward",
+        value: "Edward",
+        icon: Avatar,
     },
 ];

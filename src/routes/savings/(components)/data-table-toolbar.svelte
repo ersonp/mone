@@ -5,7 +5,7 @@
 	import type { TableViewModel } from 'svelte-headless-table';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Cross2 from 'svelte-radix/Cross2.svelte';
-	import { statuses, priorities } from '../(data)/data.js';
+	import { statuses, names } from '../(data)/data.js';
 	import type { Writable } from 'svelte/store';
 
 	export let tableModel: TableViewModel<Task>;
@@ -22,7 +22,7 @@
 	}: {
 		filterValues: Writable<{
 			status: string[];
-			priority: string[];
+			name: string[];
 		}>;
 	} = pluginStates.colFilter;
 
@@ -43,17 +43,13 @@
 			title="Status"
 			options={statuses}
 		/>
-		<DataTableFacetedFilter
-			bind:filterValues={$filterValues.priority}
-			title="Priority"
-			options={priorities}
-		/>
+		<DataTableFacetedFilter bind:filterValues={$filterValues.name} title="Name" options={names} />
 		{#if showReset}
 			<Button
 				on:click={() => {
 					$filterValue = '';
 					$filterValues.status = [];
-					$filterValues.priority = [];
+					$filterValues.name = [];
 				}}
 				variant="ghost"
 				class="h-8 px-2 lg:px-3"
