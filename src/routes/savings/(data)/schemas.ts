@@ -9,7 +9,7 @@ export const taskSchema = z.object({
             String: z.string(),
         }),
     }),
-    title: z.string(),
+    inv_name: z.string(),
     inv_type: z.string(),
     name: z.string(),
     inv_status: z.string(),

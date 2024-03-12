@@ -12,7 +12,7 @@
 	} from 'svelte-headless-table/plugins';
 	import {
 		DataTableCheckbox,
-		DataTableTitleCell,
+		DataTableInvNameCell,
 		DataTableStatusCell,
 		DataTableRowActions,
 		DataTableNameCell,
@@ -78,12 +78,12 @@
 			}
 		}),
 		table.column({
-			accessor: 'title',
-			header: 'Title',
-			id: 'title',
+			accessor: 'inv_name',
+			header: 'Inv Name',
+			id: 'inv-name',
 			cell: ({ value, row }) => {
 				if (row.isData()) {
-					return createRender(DataTableTitleCell, {
+					return createRender(DataTableInvNameCell, {
 						value,
 						labelValue: row.original.inv_type
 					});
