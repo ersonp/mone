@@ -92,8 +92,8 @@
 			}
 		}),
 		table.column({
-			accessor: 'status',
-			header: 'Status',
+			accessor: 'inv_status',
+			header: 'Inv Status',
 			id: 'status',
 			cell: ({ value }) => {
 				return createRender(DataTableStatusCell, {

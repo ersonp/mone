@@ -40,7 +40,7 @@
 
 		<DataTableFacetedFilter
 			bind:filterValues={$filterValues.status}
-			title="Status"
+			title="Inv Status"
 			options={statuses}
 		/>
 		<DataTableFacetedFilter bind:filterValues={$filterValues.name} title="Name" options={names} />

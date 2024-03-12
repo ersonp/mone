@@ -10,9 +10,9 @@ export const taskSchema = z.object({
         }),
     }),
     title: z.string(),
-    status: z.string(),
     label: z.string(),
     name: z.string(),
+    inv_status: z.string(),
 });
 
 export type Task = z.infer<typeof taskSchema>;
