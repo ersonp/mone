@@ -44,7 +44,7 @@
 		table.column({
 			accessor: 'start_date',
 			header: 'Start Date',
-			id: 'start-date',
+			id: 'startDate',
 			cell: ({ value }) => {
 				const date = new Date(value);
 				return date.toLocaleDateString('en-US', {
@@ -57,7 +57,7 @@
 		table.column({
 			accessor: 'end_date',
 			header: 'End Date',
-			id: 'end-date',
+			id: 'endDate',
 			cell: ({ value }) => {
 				const date = new Date(value);
 				return date.toLocaleDateString('en-US', {
@@ -70,7 +70,7 @@
 		table.column({
 			accessor: 'inv_name',
 			header: 'Inv Name',
-			id: 'inv-name',
+			id: 'invName',
 			cell: ({ value, row }) => {
 				if (row.isData()) {
 					return createRender(DataTableInvNameCell, {
