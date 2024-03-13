@@ -106,16 +106,19 @@
 		table.column({
 			accessor: 'return_rate',
 			header: 'Return Rate',
+			id: 'returnRate',
 			cell: ({ value }) => value
 		}),
 		table.column({
 			accessor: 'return_type',
 			header: 'Return Type',
+			id: 'returnType',
 			cell: ({ value }) => value
 		}),
 		table.column({
 			accessor: 'inv_amount',
 			header: 'Investment Amount',
+			id: 'invAmount',
 			cell: ({ value }) => value
 		}),
 		table.column({
