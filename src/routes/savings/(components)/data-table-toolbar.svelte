@@ -33,7 +33,7 @@
 <div class="flex items-center justify-between">
 	<div class="flex flex-1 items-center space-x-2">
 		<Input
-			placeholder="Filter Inv Names..."
+			placeholder="Filter..."
 			class="h-8 w-[150px] lg:w-[250px]"
 			type="search"
 			bind:value={$filterValue}
