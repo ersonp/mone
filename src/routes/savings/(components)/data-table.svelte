@@ -198,7 +198,7 @@
 	const { headerRows, pageRows, tableAttrs, tableBodyAttrs } = tableModel;
 </script>
 
-<div class="space-y-4">
+<div class="space-y-3">
 	<DataTableToolbar {tableModel} />
 	<div class="rounded-md border">
 		<Table.Root {...$tableAttrs}>
