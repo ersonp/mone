@@ -35,12 +35,6 @@
 		<div class="w-full md:w-1/2 lg:w-1/3 pr-1 pt-1">
 			<Input placeholder="Filter..." class="h-8 " type="search" bind:value={$filterValue} />
 		</div>
-		<div class="pr-1 pt-1">
-			<Button variant="outline" class="h-8">Button 1</Button>
-		</div>
-		<div class="pr-1 pt-1">
-			<Button variant="outline" class="h-8">Button 2</Button>
-		</div>
 	</div>
 	<div class="flex flex-wrap">
 		<DataTableFacetedFilter
