@@ -11,7 +11,7 @@
 		addTableFilter
 	} from 'svelte-headless-table/plugins';
 	import {
-		DataTableCheckbox,
+		DataTableDateCell,
 		DataTableInvNameCell,
 		DataTableStatusCell,
 		DataTableRowActions,
@@ -42,29 +42,29 @@
 
 	const columns = table.createColumns([
 		table.column({
-			accessor: 'start_date',
-			header: 'Start Date',
-			id: 'startDate',
-			cell: ({ value }) => {
-				const date = new Date(value);
-				return date.toLocaleDateString('en-US', {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric'
-				});
-			}
-		}),
-		table.column({
 			accessor: 'end_date',
-			header: 'End Date',
-			id: 'endDate',
-			cell: ({ value }) => {
-				const date = new Date(value);
-				return date.toLocaleDateString('en-US', {
+			header: 'Dates',
+			id: 'dates',
+			cell: ({ value, row }) => {
+				let date = new Date(value);
+				const endDate = date.toLocaleDateString('en-US', {
 					year: 'numeric',
 					month: 'long',
 					day: 'numeric'
 				});
+				if (row.isData()) {
+					date = new Date(row.original.start_date);
+					const startDate = date.toLocaleDateString('en-US', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					});
+					return createRender(DataTableDateCell, {
+						startDate: startDate,
+						endDate: endDate
+					});
+				}
+				return value;
 			}
 		}),
 		table.column({
@@ -117,13 +117,13 @@
 		}),
 		table.column({
 			accessor: 'inv_amount',
-			header: 'Inv Amount',
+			header: 'Inv Amt',
 			id: 'invAmount',
 			cell: ({ value }) => value
 		}),
 		table.column({
 			accessor: 'return_amount',
-			header: 'Return Amount',
+			header: 'Return Amt',
 			cell: ({ value }) => value
 		}),
 		table.column({

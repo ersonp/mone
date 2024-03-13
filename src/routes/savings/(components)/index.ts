@@ -8,3 +8,4 @@ export { default as DataTableToolbar } from "./data-table-toolbar.svelte";
 export { default as DataTablePagination } from "./data-table-pagination.svelte";
 export { default as DataTableViewOptions } from "./data-table-dynamic-columns.svelte";
 export { default as DataTableFacetedFilter } from "./data-table-faceted-filter.svelte";
+export { default as DataTableDateCell } from "./data-table-date-cell.svelte";
