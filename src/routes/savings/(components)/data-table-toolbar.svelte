@@ -31,8 +31,16 @@
 </script>
 
 <div class="flex flex-col space-y-2">
-	<div class="flex flex-1">
-		<Input placeholder="Filter..." class="h-8" type="search" bind:value={$filterValue} />
+	<div class="flex flex-wrap">
+		<div class="w-full md:w-1/2 lg:w-1/3 pr-1 pt-1">
+			<Input placeholder="Filter..." class="h-8 " type="search" bind:value={$filterValue} />
+		</div>
+		<div class="pr-1 pt-1">
+			<Button variant="outline" class="h-8">Button 1</Button>
+		</div>
+		<div class="pr-1 pt-1">
+			<Button variant="outline" class="h-8">Button 2</Button>
+		</div>
 	</div>
 	<div class="flex flex-wrap">
 		<DataTableFacetedFilter
@@ -47,19 +55,21 @@
 		/>
 		<DataTableFacetedFilter bind:filterValues={$filterValues.name} title="Name" options={names} />
 		{#if showReset}
-			<Button
-				on:click={() => {
-					$filterValue = '';
-					$filterValues.invType = [];
-					$filterValues.status = [];
-					$filterValues.name = [];
-				}}
-				variant="ghost"
-				class="h-8 px-2 lg:px-3"
-			>
-				Reset
-				<Cross2 class="ml-2 h-4 w-4" />
-			</Button>
+			<div class="pt-1">
+				<Button
+					on:click={() => {
+						$filterValue = '';
+						$filterValues.invType = [];
+						$filterValues.status = [];
+						$filterValues.name = [];
+					}}
+					variant="ghost"
+					class="h-8 px-2 lg:px-3"
+				>
+					Reset
+					<Cross2 class="ml-2 h-4 w-4" />
+				</Button>
+			</div>
 		{/if}
 	</div>
 
