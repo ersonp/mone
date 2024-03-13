@@ -11,4 +11,5 @@
 		</div>
 	</div>
 	<DataTable {data} />
+	<div class="overflow-y-auto p-2"></div>
 </div>
