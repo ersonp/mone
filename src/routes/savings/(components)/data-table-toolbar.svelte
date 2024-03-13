@@ -30,15 +30,11 @@
 	$: showReset = Object.values({ ...$filterValues, $filterValue }).some((v) => v.length > 0);
 </script>
 
-<div class="flex items-center justify-between">
-	<div class="flex flex-1 items-center space-x-2">
-		<Input
-			placeholder="Filter..."
-			class="h-8 w-[150px] lg:w-[250px]"
-			type="search"
-			bind:value={$filterValue}
-		/>
-
+<div class="flex flex-col space-y-2">
+	<div class="flex flex-1">
+		<Input placeholder="Filter..." class="h-8" type="search" bind:value={$filterValue} />
+	</div>
+	<div class="flex flex-wrap">
 		<DataTableFacetedFilter
 			bind:filterValues={$filterValues.invType}
 			title="Inv Type"
