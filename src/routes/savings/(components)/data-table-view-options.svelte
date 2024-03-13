@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import MixerHorizontal from 'svelte-radix/MixerHorizontal.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
@@ -9,33 +10,28 @@
 	const { pluginStates, flatColumns } = tableModel;
 	const { hiddenColumnIds } = pluginStates.hide;
 
-	const ids = flatColumns.map((col: { id: string }) => col.id);
+	let ids = [];
+	let hideForId = {};
 
-	let hideForId = Object.fromEntries(ids.map((id: string) => [id, true]));
+	const updateColumns = () => {
+		if (window.innerWidth <= 768) {
+			// for screens smaller or equal to 768px
+			ids = ['invType', 'returnRate', 'returnType', 'invAmount', 'name', 'status']; // replace with your actual column IDs for larger screens
+		} else {
+			ids = ['invType']; // replace with your actual column IDs for small screens
+		}
+		hideForId = Object.fromEntries(ids.map((id) => [id, true]));
+		$hiddenColumnIds = Object.entries(hideForId)
+			.filter(([, hide]) => hide)
+			.map(([id]) => id);
+	};
 
-	$: $hiddenColumnIds = Object.entries(hideForId)
-		.filter(([, hide]) => !hide)
-		.map(([id]) => id);
+	onMount(() => {
+		window.addEventListener('resize', updateColumns);
+		updateColumns();
+	});
 
-	const hidableCols = ['inv-name', 'status', 'name'];
+	onDestroy(() => {
+		window.removeEventListener('resize', updateColumns);
+	});
 </script>
-
-<DropdownMenu.Root>
-	<DropdownMenu.Trigger asChild let:builder>
-		<Button variant="outline" size="sm" class="ml-auto hidden h-8 lg:flex" builders={[builder]}>
-			<MixerHorizontal class="mr-2 h-4 w-4" />
-			View
-		</Button>
-	</DropdownMenu.Trigger>
-	<DropdownMenu.Content>
-		<DropdownMenu.Label>Toggle columns</DropdownMenu.Label>
-		<DropdownMenu.Separator />
-		{#each flatColumns as col}
-			{#if hidableCols.includes(col.id)}
-				<DropdownMenu.CheckboxItem bind:checked={hideForId[col.id]}>
-					{col.header}
-				</DropdownMenu.CheckboxItem>
-			{/if}
-		{/each}
-	</DropdownMenu.Content>
-</DropdownMenu.Root>

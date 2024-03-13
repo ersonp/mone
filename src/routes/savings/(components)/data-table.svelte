@@ -117,7 +117,7 @@
 		}),
 		table.column({
 			accessor: 'inv_amount',
-			header: 'Investment Amount',
+			header: 'Inv Amount',
 			id: 'invAmount',
 			cell: ({ value }) => value
 		}),
