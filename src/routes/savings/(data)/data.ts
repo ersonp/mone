@@ -9,10 +9,12 @@ export const invTypes = [
     {
         value: "FD",
         label: "FD",
+        icon: PinTop,
     },
     {
         value: "RD",
         label: "RD",
+        icon: PinTop,
     },
 ];
 

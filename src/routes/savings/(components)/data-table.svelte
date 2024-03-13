@@ -81,6 +81,27 @@
 				return value;
 			}
 		}),
+		table.column({
+			accessor: 'inv_type',
+			header: 'Inv Type',
+			id: 'invType',
+			cell: ({ value }) => value,
+			plugins: {
+				colFilter: {
+					fn: ({ filterValue, value }) => {
+						if (filterValue.length === 0) return true;
+						if (!Array.isArray(filterValue) || typeof value !== 'string') return true;
+						return filterValue.some((filter) => {
+							return value.includes(filter);
+						});
+					},
+					initialFilterValue: [],
+					render: ({ filterValue }) => {
+						return get(filterValue);
+					}
+				}
+			}
+		}),
 
 		table.column({
 			accessor: 'return_rate',

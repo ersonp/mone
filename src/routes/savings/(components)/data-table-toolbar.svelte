@@ -5,7 +5,7 @@
 	import type { TableViewModel } from 'svelte-headless-table';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Cross2 from 'svelte-radix/Cross2.svelte';
-	import { statuses, names } from '../(data)/data.js';
+	import { invTypes, statuses, names } from '../(data)/data.js';
 	import type { Writable } from 'svelte/store';
 
 	export let tableModel: TableViewModel<Task>;
@@ -21,6 +21,7 @@
 		filterValues
 	}: {
 		filterValues: Writable<{
+			invType: string[];
 			status: string[];
 			name: string[];
 		}>;
@@ -39,6 +40,11 @@
 		/>
 
 		<DataTableFacetedFilter
+			bind:filterValues={$filterValues.invType}
+			title="Inv Type"
+			options={invTypes}
+		/>
+		<DataTableFacetedFilter
 			bind:filterValues={$filterValues.status}
 			title="Inv Status"
 			options={statuses}
@@ -48,6 +54,7 @@
 			<Button
 				on:click={() => {
 					$filterValue = '';
+					$filterValues.invType = [];
 					$filterValues.status = [];
 					$filterValues.name = [];
 				}}

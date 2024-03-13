@@ -7,11 +7,11 @@
 	import { cn } from '$lib/utils.js';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Badge } from '$lib/components/ui/badge';
-	import type { statuses } from '../(data)/data.js';
+	import type { invTypes } from '../(data)/data.js';
 
 	export let filterValues: string[] = [];
 	export let title: string;
-	export let options = [] as typeof statuses;
+	export let options = [] as typeof invTypes;
 
 	let open = false;
 
