@@ -99,6 +99,9 @@
 					render: ({ filterValue }) => {
 						return get(filterValue);
 					}
+				},
+				filter: {
+					exclude: true
 				}
 			}
 		}),
@@ -149,6 +152,9 @@
 					render: ({ filterValue }) => {
 						return get(filterValue);
 					}
+				},
+				filter: {
+					exclude: true
 				}
 			}
 		}),
@@ -174,6 +180,9 @@
 					render: ({ filterValue }) => {
 						return get(filterValue);
 					}
+				},
+				filter: {
+					exclude: true
 				}
 			}
 		}),
