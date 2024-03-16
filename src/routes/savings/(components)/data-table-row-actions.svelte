@@ -3,10 +3,10 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { invTypes } from '../(data)/data.js';
-	import { taskSchema, type Task } from '../(data)/schemas.js';
+	import { investmentSchema, type Investment } from '../(data)/schemas.js';
 
-	export let row: Task;
-	const task = taskSchema.parse(row);
+	export let row: Investment;
+	const data = investmentSchema.parse(row);
 </script>
 
 <DropdownMenu.Root>
@@ -28,7 +28,7 @@
 		<DropdownMenu.Sub>
 			<DropdownMenu.SubTrigger>Inv Types</DropdownMenu.SubTrigger>
 			<DropdownMenu.SubContent>
-				<DropdownMenu.RadioGroup value={task.inv_type}>
+				<DropdownMenu.RadioGroup value={data.inv_type}>
 					{#each invTypes as invType}
 						<DropdownMenu.RadioItem value={invType.value}>
 							{invType.label}

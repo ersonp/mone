@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Input } from '$lib/components/ui/input';
 	import { DataTableFacetedFilter, DataTableViewOptions } from '.';
-	import type { Task } from '../(data)/schemas.js';
+	import type { Investment } from '../(data)/schemas.js';
 	import type { TableViewModel } from 'svelte-headless-table';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Cross2 from 'svelte-radix/Cross2.svelte';
@@ -9,7 +9,7 @@
 	import { invTypes, statuses, names } from '../(data)/data.js';
 	import type { Writable } from 'svelte/store';
 
-	export let tableModel: TableViewModel<Task>;
+	export let tableModel: TableViewModel<Investment>;
 
 	const { pluginStates } = tableModel;
 	const {

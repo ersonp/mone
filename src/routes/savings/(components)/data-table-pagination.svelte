@@ -5,10 +5,10 @@
 	import DoubleArrowRight from 'svelte-radix/DoubleArrowRight.svelte';
 	import DoubleArrowLeft from 'svelte-radix/DoubleArrowLeft.svelte';
 	import * as Select from '$lib/components/ui/select';
-	import type { Task } from '../(data)/schemas.js';
+	import type { Investment } from '../(data)/schemas.js';
 	import type { TableViewModel } from 'svelte-headless-table';
 
-	export let tableModel: TableViewModel<Task>;
+	export let tableModel: TableViewModel<Investment>;
 
 	const { pageRows, pluginStates, rows } = tableModel;
 

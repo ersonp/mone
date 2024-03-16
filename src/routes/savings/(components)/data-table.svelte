@@ -24,9 +24,9 @@
 		DataTableExpandContent
 	} from '.';
 
-	import type { Task } from '../(data)/schemas.js';
+	import type { Investment } from '../(data)/schemas.js';
 
-	export let data: Task[];
+	export let data: Investment[];
 
 	const table = createTable(readable(data), {
 		select: addSelectedRows(),
