@@ -129,7 +129,7 @@
 			accessor: 'return_rate',
 			header: 'Return Rate',
 			id: 'returnRate',
-			cell: ({ value }) => value
+			cell: ({ value }) => value + ' %'
 		}),
 		table.column({
 			accessor: 'return_type',
@@ -271,9 +271,11 @@
 					{#if $expandedIds.hasOwnProperty(row.id)}
 						{#if row.isData() && row.original}
 							<Table.Row class="bg-muted/50">
-								<Table.Cell colspan={10}>
+								<Table.Cell></Table.Cell>
+								<Table.Cell colspan={8}>
 									<DataTableExpandContent expanded={row.original} />
 								</Table.Cell>
+								<Table.Cell></Table.Cell>
 							</Table.Row>
 						{/if}
 					{/if}
