@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import PieChart from 'svelte-radix/PieChart.svelte';
-	import SketchLogo from 'svelte-radix/SketchLogo.svelte';
 	import Transactions from '$lib/icons/transactions.svelte';
 	import Savings from '$lib/icons/savings.svelte';
-	import Input from 'svelte-radix/Input.svelte';
 
 	export let isOpen: boolean;
 </script>

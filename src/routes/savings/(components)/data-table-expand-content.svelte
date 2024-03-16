@@ -1,7 +1,5 @@
 <script lang="ts">
-	import type { DataBodyRow } from 'svelte-headless-table';
 	import { investmentSchema, type Investment } from '../(data)/schemas.js';
-	import type { AnyPlugins } from 'svelte-headless-table/plugins';
 
 	export let expanded: Investment;
 	const data = investmentSchema.parse(expanded);

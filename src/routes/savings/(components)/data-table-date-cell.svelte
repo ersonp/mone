@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { Badge } from '$lib/components/ui/badge';
-
 	export let endDate: string;
 	export let startDate: string;
 </script>

@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import MixerHorizontal from 'svelte-radix/MixerHorizontal.svelte';
-	import { Button } from '$lib/components/ui/button';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { Investment } from '../(data)/schemas.js';
 	import type { TableViewModel } from 'svelte-headless-table';
 
