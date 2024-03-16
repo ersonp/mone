@@ -272,10 +272,9 @@
 						{#if row.isData() && row.original}
 							<Table.Row>
 								<Table.Cell></Table.Cell>
-								<Table.Cell colspan={8}>
+								<Table.Cell colspan={9}>
 									<DataTableExpandContent expanded={row.original} />
 								</Table.Cell>
-								<Table.Cell></Table.Cell>
 							</Table.Row>
 						{/if}
 					{/if}
