@@ -20,7 +20,8 @@
 		DataTableColumnHeader,
 		DataTableToolbar,
 		DataTablePagination,
-		DataTableExpandCell
+		DataTableExpandCell,
+		DataTableExpandContent
 	} from '.';
 
 	import type { Task } from '../(data)/schemas.js';
@@ -268,11 +269,13 @@
 						</Table.Row>
 					</Subscribe>
 					{#if $expandedIds.hasOwnProperty(row.id)}
-						<Table.Row class="bg-muted/50">
-							<Table.Cell colspan={10}>
-								<div>adasdasdad</div>
-							</Table.Cell>
-						</Table.Row>
+						{#if row.isData() && row.original}
+							<Table.Row class="bg-muted/50">
+								<Table.Cell colspan={10}>
+									<DataTableExpandContent expanded={row.original} />
+								</Table.Cell>
+							</Table.Row>
+						{/if}
 					{/if}
 				{/each}
 			</Table.Body>

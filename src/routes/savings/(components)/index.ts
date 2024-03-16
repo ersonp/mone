@@ -10,3 +10,4 @@ export { default as DataTableViewOptions } from "./data-table-dynamic-columns.sv
 export { default as DataTableFacetedFilter } from "./data-table-faceted-filter.svelte";
 export { default as DataTableDateCell } from "./data-table-date-cell.svelte";
 export { default as DataTableExpandCell } from "./data-table-expand-cell.svelte";
+export { default as DataTableExpandContent } from "./data-table-expand-content.svelte";
