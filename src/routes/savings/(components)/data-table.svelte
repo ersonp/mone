@@ -257,7 +257,7 @@
 					<Subscribe rowAttrs={row.attrs()} let:rowAttrs>
 						<Table.Row
 							{...rowAttrs}
-							class={$expandedIds.hasOwnProperty(row.id) ? 'border-none bg-muted/50' : ''}
+							class={$expandedIds.hasOwnProperty(row.id) ? 'border-none' : ''}
 						>
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
@@ -270,7 +270,7 @@
 					</Subscribe>
 					{#if $expandedIds.hasOwnProperty(row.id)}
 						{#if row.isData() && row.original}
-							<Table.Row class="bg-muted/50">
+							<Table.Row>
 								<Table.Cell></Table.Cell>
 								<Table.Cell colspan={8}>
 									<DataTableExpandContent expanded={row.original} />
