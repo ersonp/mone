@@ -8,7 +8,8 @@
 		addPagination,
 		addSelectedRows,
 		addSortBy,
-		addTableFilter
+		addTableFilter,
+		addExpandedRows
 	} from 'svelte-headless-table/plugins';
 	import {
 		DataTableDateCell,
@@ -18,7 +19,8 @@
 		DataTableNameCell,
 		DataTableColumnHeader,
 		DataTableToolbar,
-		DataTablePagination
+		DataTablePagination,
+		DataTableExpandCell
 	} from '.';
 
 	import type { Task } from '../(data)/schemas.js';
@@ -37,10 +39,26 @@
 			}
 		}),
 		colFilter: addColumnFilters(),
-		hide: addHiddenColumns()
+		hide: addHiddenColumns(),
+		expand: addExpandedRows()
 	});
 
 	const columns = table.createColumns([
+		table.display({
+			id: 'expanded',
+			header: '',
+			cell: ({ row }, { pluginStates }) => {
+				const { isExpanded } = pluginStates.expand.getRowState(row);
+				return createRender(DataTableExpandCell, {
+					isExpanded
+				});
+			},
+			plugins: {
+				sort: {
+					disable: true
+				}
+			}
+		}),
 		table.column({
 			accessor: 'end_date',
 			header: 'Dates',
@@ -204,7 +222,8 @@
 
 	const tableModel = table.createViewModel(columns);
 
-	const { headerRows, pageRows, tableAttrs, tableBodyAttrs } = tableModel;
+	const { headerRows, rows, tableAttrs, tableBodyAttrs, pluginStates } = tableModel;
+	const { expandedIds } = pluginStates.expand;
 </script>
 
 <div class="space-y-3">
@@ -233,24 +252,28 @@
 				{/each}
 			</Table.Header>
 			<Table.Body {...$tableBodyAttrs}>
-				{#each $pageRows as row (row.id)}
+				{#each $rows as row (row.id)}
 					<Subscribe rowAttrs={row.attrs()} let:rowAttrs>
-						<Table.Row {...rowAttrs}>
+						<Table.Row
+							{...rowAttrs}
+							class={$expandedIds.hasOwnProperty(row.id) ? 'border-none bg-muted/50' : ''}
+						>
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
 									<Table.Cell {...attrs}>
-										{#if cell.id === 'task'}
-											<div class="w-[80px]">
-												<Render of={cell.render()} />
-											</div>
-										{:else}
-											<Render of={cell.render()} />
-										{/if}
+										<Render of={cell.render()} />
 									</Table.Cell>
 								</Subscribe>
 							{/each}
 						</Table.Row>
 					</Subscribe>
+					{#if $expandedIds.hasOwnProperty(row.id)}
+						<Table.Row class="bg-muted/50">
+							<Table.Cell colspan={10}>
+								<div>adasdasdad</div>
+							</Table.Cell>
+						</Table.Row>
+					{/if}
 				{/each}
 			</Table.Body>
 		</Table.Root>
