@@ -69,7 +69,7 @@
 			{/if}
 		</div>
 		<div class="pt-1">
-			<Button variant="outline" class="h-8 bg-primary text-secondary">
+			<Button class="h-8">
 				Add
 				<CardStackPlus class="ml-2 h-4 w-4" />
 			</Button>
