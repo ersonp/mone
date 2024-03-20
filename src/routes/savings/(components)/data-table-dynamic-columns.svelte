@@ -13,16 +13,25 @@
 	const updateColumns = () => {
 		if (window.innerWidth <= 768) {
 			// md: '768px'
-			ids = ['invType', 'returnRate', 'returnType', 'invAmount', 'name', 'status', 'actions'];
+			ids = [
+				'invType',
+				'startDate',
+				'returnRate',
+				'returnType',
+				'invAmount',
+				'name',
+				'status',
+				'actions'
+			];
 		} else if (window.innerWidth <= 1024) {
 			// lg: '1024px'
-			ids = ['invType', 'returnRate', 'returnType', 'invAmount', 'status'];
+			ids = ['invType', 'startDate', 'returnRate', 'returnType', 'invAmount', 'status'];
 		} else if (window.innerWidth <= 1280) {
-			ids = ['invType', 'returnRate', 'returnType'];
 			// xl: '1280px'
+			ids = ['invType', 'startDate', 'returnRate', 'returnType'];
 		} else {
 			// '2xl': '1536px'
-			ids = ['invType'];
+			ids = ['invType', 'startDate'];
 		}
 		hideForId = Object.fromEntries(ids.map((id) => [id, true]));
 		$hiddenColumnIds = Object.entries(hideForId)

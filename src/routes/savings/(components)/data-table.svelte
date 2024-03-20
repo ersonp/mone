@@ -73,6 +73,7 @@
 		table.column({
 			accessor: 'start_date',
 			header: 'Start Date',
+			id: 'startDate',
 			cell: ({ value }) => value,
 			plugins: {
 				filter: {
