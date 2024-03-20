@@ -2,11 +2,11 @@
 	import DotsHorizontal from 'svelte-radix/DotsHorizontal.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	import { labels } from '../(data)/data.js';
-	import { taskSchema, type Task } from '../(data)/schemas.js';
+	import { invTypes } from '../(data)/data.js';
+	import { investmentSchema, type Investment } from '../(data)/schemas.js';
 
-	export let row: Task;
-	const task = taskSchema.parse(row);
+	export let row: Investment;
+	const data = investmentSchema.parse(row);
 </script>
 
 <DropdownMenu.Root>
@@ -26,12 +26,12 @@
 		<DropdownMenu.Item>Favorite</DropdownMenu.Item>
 		<DropdownMenu.Separator />
 		<DropdownMenu.Sub>
-			<DropdownMenu.SubTrigger>Labels</DropdownMenu.SubTrigger>
+			<DropdownMenu.SubTrigger>Inv Types</DropdownMenu.SubTrigger>
 			<DropdownMenu.SubContent>
-				<DropdownMenu.RadioGroup value={task.label}>
-					{#each labels as label}
-						<DropdownMenu.RadioItem value={label.value}>
-							{label.label}
+				<DropdownMenu.RadioGroup value={data.inv_type}>
+					{#each invTypes as invType}
+						<DropdownMenu.RadioItem value={invType.value}>
+							{invType.label}
 						</DropdownMenu.RadioItem>
 					{/each}
 				</DropdownMenu.RadioGroup>

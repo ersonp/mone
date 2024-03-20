@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.pcss';
 	import '../app.postcss';
-	import { ModeWatcher, toggleMode } from 'mode-watcher';
+	import { ModeWatcher } from 'mode-watcher';
 	import Sidebar from './(components)/sidebar.svelte';
 </script>
 

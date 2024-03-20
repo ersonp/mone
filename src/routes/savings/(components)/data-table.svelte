@@ -8,22 +8,25 @@
 		addPagination,
 		addSelectedRows,
 		addSortBy,
-		addTableFilter
+		addTableFilter,
+		addExpandedRows
 	} from 'svelte-headless-table/plugins';
 	import {
-		DataTableCheckbox,
-		DataTableTitleCell,
+		DataTableDateCell,
+		DataTableInvNameCell,
 		DataTableStatusCell,
 		DataTableRowActions,
-		DataTablePriorityCell,
+		DataTableNameCell,
 		DataTableColumnHeader,
 		DataTableToolbar,
-		DataTablePagination
+		DataTablePagination,
+		DataTableExpandCell,
+		DataTableExpandContent
 	} from '.';
 
-	import type { Task } from '../(data)/schemas.js';
+	import type { Investment } from '../(data)/schemas.js';
 
-	export let data: Task[];
+	export let data: Investment[];
 
 	const table = createTable(readable(data), {
 		select: addSelectedRows(),
@@ -37,26 +40,18 @@
 			}
 		}),
 		colFilter: addColumnFilters(),
-		hide: addHiddenColumns()
+		hide: addHiddenColumns(),
+		expand: addExpandedRows()
 	});
 
 	const columns = table.createColumns([
 		table.display({
-			id: 'select',
-			header: (_, { pluginStates }) => {
-				const { allPageRowsSelected } = pluginStates.select;
-				return createRender(DataTableCheckbox, {
-					checked: allPageRowsSelected,
-					'aria-label': 'Select all'
-				});
-			},
+			id: 'expanded',
+			header: '',
 			cell: ({ row }, { pluginStates }) => {
-				const { getRowState } = pluginStates.select;
-				const { isSelected } = getRowState(row);
-				return createRender(DataTableCheckbox, {
-					checked: isSelected,
-					'aria-label': 'Select row',
-					class: 'translate-y-[2px]'
+				const { isExpanded } = pluginStates.expand.getRowState(row);
+				return createRender(DataTableExpandCell, {
+					isExpanded
 				});
 			},
 			plugins: {
@@ -66,34 +61,125 @@
 			}
 		}),
 		table.column({
-			accessor: 'id',
-			header: () => {
-				return 'Task';
-			},
-			id: 'task',
-			plugins: {
-				sort: {
-					disable: true
-				}
-			}
-		}),
-		table.column({
-			accessor: 'title',
-			header: 'Title',
-			id: 'title',
+			accessor: 'end_date',
+			header: 'Dates',
+			id: 'dates',
 			cell: ({ value, row }) => {
+				let date = new Date(value);
+				const endDate = date.toLocaleDateString('en-US', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric'
+				});
 				if (row.isData()) {
-					return createRender(DataTableTitleCell, {
-						value,
-						labelValue: row.original.label
+					date = new Date(row.original.start_date);
+					const startDate = date.toLocaleDateString('en-US', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					});
+					return createRender(DataTableDateCell, {
+						startDate: startDate,
+						endDate: endDate
 					});
 				}
 				return value;
 			}
 		}),
 		table.column({
-			accessor: 'status',
-			header: 'Status',
+			accessor: 'inv_name',
+			header: 'Inv Name',
+			id: 'invName',
+			cell: ({ value, row }) => {
+				if (row.isData()) {
+					return createRender(DataTableInvNameCell, {
+						value,
+						labelValue: row.original.inv_type
+					});
+				}
+				return value;
+			}
+		}),
+		table.column({
+			accessor: 'inv_type',
+			header: 'Inv Type',
+			id: 'invType',
+			cell: ({ value }) => value,
+			plugins: {
+				colFilter: {
+					fn: ({ filterValue, value }) => {
+						if (filterValue.length === 0) return true;
+						if (!Array.isArray(filterValue) || typeof value !== 'string') return true;
+						return filterValue.some((filter) => {
+							return value.includes(filter);
+						});
+					},
+					initialFilterValue: [],
+					render: ({ filterValue }) => {
+						return get(filterValue);
+					}
+				},
+				filter: {
+					exclude: true
+				}
+			}
+		}),
+
+		table.column({
+			accessor: 'return_rate',
+			header: 'Return Rate',
+			id: 'returnRate',
+			cell: ({ value }) => value + ' %'
+		}),
+		table.column({
+			accessor: 'return_type',
+			header: 'Return Type',
+			id: 'returnType',
+			cell: ({ value }) => value
+		}),
+		table.column({
+			accessor: 'inv_amount',
+			header: 'Inv Amt',
+			id: 'invAmount',
+			cell: ({ value }) => value
+		}),
+		table.column({
+			accessor: 'return_amount',
+			header: 'Return Amt',
+			cell: ({ value }) => value
+		}),
+		table.column({
+			accessor: 'name',
+			id: 'name',
+			header: 'Name',
+			cell: ({ value }) => {
+				return createRender(DataTableNameCell, {
+					value
+				});
+			},
+			plugins: {
+				colFilter: {
+					fn: ({ filterValue, value }) => {
+						if (filterValue.length === 0) return true;
+						if (!Array.isArray(filterValue) || typeof value !== 'string') return true;
+
+						return filterValue.some((filter) => {
+							return value.includes(filter);
+						});
+					},
+					initialFilterValue: [],
+					render: ({ filterValue }) => {
+						return get(filterValue);
+					}
+				},
+				filter: {
+					exclude: true
+				}
+			}
+		}),
+		table.column({
+			accessor: 'inv_status',
+			header: 'Inv Status',
 			id: 'status',
 			cell: ({ value }) => {
 				return createRender(DataTableStatusCell, {
@@ -113,32 +199,9 @@
 					render: ({ filterValue }) => {
 						return get(filterValue);
 					}
-				}
-			}
-		}),
-		table.column({
-			accessor: 'priority',
-			id: 'priority',
-			header: 'Priority',
-			cell: ({ value }) => {
-				return createRender(DataTablePriorityCell, {
-					value
-				});
-			},
-			plugins: {
-				colFilter: {
-					fn: ({ filterValue, value }) => {
-						if (filterValue.length === 0) return true;
-						if (!Array.isArray(filterValue) || typeof value !== 'string') return true;
-
-						return filterValue.some((filter) => {
-							return value.includes(filter);
-						});
-					},
-					initialFilterValue: [],
-					render: ({ filterValue }) => {
-						return get(filterValue);
-					}
+				},
+				filter: {
+					exclude: true
 				}
 			}
 		}),
@@ -160,10 +223,11 @@
 
 	const tableModel = table.createViewModel(columns);
 
-	const { headerRows, pageRows, tableAttrs, tableBodyAttrs } = tableModel;
+	const { headerRows, rows, tableAttrs, tableBodyAttrs, pluginStates } = tableModel;
+	const { expandedIds } = pluginStates.expand;
 </script>
 
-<div class="space-y-4">
+<div class="space-y-3">
 	<DataTableToolbar {tableModel} />
 	<div class="rounded-md border">
 		<Table.Root {...$tableAttrs}>
@@ -189,24 +253,31 @@
 				{/each}
 			</Table.Header>
 			<Table.Body {...$tableBodyAttrs}>
-				{#each $pageRows as row (row.id)}
+				{#each $rows as row (row.id)}
 					<Subscribe rowAttrs={row.attrs()} let:rowAttrs>
-						<Table.Row {...rowAttrs}>
+						<Table.Row
+							{...rowAttrs}
+							class={$expandedIds.hasOwnProperty(row.id) ? 'border-none' : ''}
+						>
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
 									<Table.Cell {...attrs}>
-										{#if cell.id === 'task'}
-											<div class="w-[80px]">
-												<Render of={cell.render()} />
-											</div>
-										{:else}
-											<Render of={cell.render()} />
-										{/if}
+										<Render of={cell.render()} />
 									</Table.Cell>
 								</Subscribe>
 							{/each}
 						</Table.Row>
 					</Subscribe>
+					{#if $expandedIds.hasOwnProperty(row.id)}
+						{#if row.isData() && row.original}
+							<Table.Row>
+								<Table.Cell></Table.Cell>
+								<Table.Cell colspan={9}>
+									<DataTableExpandContent expanded={row.original} />
+								</Table.Cell>
+							</Table.Row>
+						{/if}
+					{/if}
 				{/each}
 			</Table.Body>
 		</Table.Root>

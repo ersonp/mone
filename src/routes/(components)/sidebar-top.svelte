@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import PieChart from 'svelte-radix/PieChart.svelte';
-	import SketchLogo from 'svelte-radix/SketchLogo.svelte';
-	import Input from 'svelte-radix/Input.svelte';
+	import Transactions from '$lib/icons/transactions.svelte';
+	import Savings from '$lib/icons/savings.svelte';
 
 	export let isOpen: boolean;
 </script>
@@ -17,7 +17,7 @@
 				? 'bg-primary text-secondary rounded '
 				: undefined}"
 		>
-			<SketchLogo />
+			<Savings />
 			<span class="{isOpen ? undefined : 'md:hidden'} pl-4"> Savings </span>
 		</li>
 	</a>
@@ -30,7 +30,7 @@
 				? 'bg-primary text-secondary rounded '
 				: undefined}"
 		>
-			<Input />
+			<Transactions />
 			<span class="{isOpen ? undefined : 'md:hidden'} pl-4"> Accounts </span>
 		</li>
 	</a>

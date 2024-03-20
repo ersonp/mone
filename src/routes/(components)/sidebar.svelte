@@ -17,7 +17,7 @@
 </script>
 
 {#if !isRoot}
-	<Collapsible.Root class="space-y-2 md:hidden p-5">
+	<Collapsible.Root class="space-y-2 md:hidden pt-5 px-4">
 		<div class="flex items-center justify-between space-x-4">
 			<Collapsible.Trigger asChild let:builder>
 				<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
