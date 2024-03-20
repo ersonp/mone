@@ -6,7 +6,7 @@
 	import { type DateValue } from '@internationalized/date';
 	import { Button } from '$lib/components/ui/button';
 	import * as Select from '$lib/components/ui/select';
-	import { invTypes, statuses, names } from '../(data)/data.js';
+	import { invTypes, returnTypes, statuses, names } from '../(data)/data.js';
 	import { DatePicker } from '.';
 
 	let startDate: DateValue | undefined = undefined;
@@ -39,7 +39,7 @@
 				<Input id="invName" placeholder="BCCB" />
 			</div>
 			<div class="grid gap-4">
-				<Label for="returnType">Investment Type</Label>
+				<Label for="invType">Investment Type</Label>
 				<Select.Root>
 					<Select.Trigger>
 						<Select.Value placeholder="Select a Type" />
@@ -58,7 +58,21 @@
 			</div>
 			<div class="grid gap-4">
 				<Label for="returnType">Return Type</Label>
-				<Input id="returnType" placeholder="Return Type" />
+				<Select.Root>
+					<Select.Trigger>
+						<Select.Value placeholder="Select a Type" />
+					</Select.Trigger>
+					<Select.Content>
+						<Select.Group>
+							{#each returnTypes as returnType}
+								<Select.Item value={returnType.value} label={returnType.label}>
+									{returnType.label}
+								</Select.Item>
+							{/each}
+						</Select.Group>
+					</Select.Content>
+					<Select.Input name="returnType" />
+				</Select.Root>
 			</div>
 			<div class="grid gap-4">
 				<Label for="returnRate">Return Rate</Label>
