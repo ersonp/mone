@@ -12,4 +12,4 @@ export { default as DataTableDateCell } from "./data-table-date-cell.svelte";
 export { default as DataTableExpandCell } from "./data-table-expand-cell.svelte";
 export { default as DataTableExpandContent } from "./data-table-expand-content.svelte";
 export { default as AddSheet } from "./add-sheet.svelte";
-export { default as DatePicker } from "./date-picker.svelte";
+export { default as DatePicker } from "../../(components)/date-picker.svelte";
