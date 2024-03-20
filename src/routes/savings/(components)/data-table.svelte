@@ -46,7 +46,8 @@
 		filter: addTableFilter({
 			fn: ({ filterValue, value }) => {
 				return value.toLowerCase().includes(filterValue.toLowerCase());
-			}
+			},
+			includeHiddenColumns: true
 		}),
 		colFilter: addColumnFilters(),
 		hide: addHiddenColumns(),
