@@ -28,6 +28,15 @@
 
 	export let data: Investment[];
 
+	function formatDate(value: string) {
+		const date = new Date(value);
+		return date.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+	}
+
 	const table = createTable(readable(data), {
 		select: addSelectedRows(),
 		sort: addSortBy({
@@ -37,7 +46,8 @@
 		filter: addTableFilter({
 			fn: ({ filterValue, value }) => {
 				return value.toLowerCase().includes(filterValue.toLowerCase());
-			}
+			},
+			includeHiddenColumns: true
 		}),
 		colFilter: addColumnFilters(),
 		hide: addHiddenColumns(),
@@ -61,29 +71,33 @@
 			}
 		}),
 		table.column({
+			accessor: 'start_date',
+			header: 'Start Date',
+			id: 'startDate',
+			cell: ({ value }) => value,
+			plugins: {
+				filter: {
+					getFilterValue: formatDate
+				}
+			}
+		}),
+		table.column({
 			accessor: 'end_date',
 			header: 'Dates',
 			id: 'dates',
 			cell: ({ value, row }) => {
-				let date = new Date(value);
-				const endDate = date.toLocaleDateString('en-US', {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric'
-				});
 				if (row.isData()) {
-					date = new Date(row.original.start_date);
-					const startDate = date.toLocaleDateString('en-US', {
-						year: 'numeric',
-						month: 'long',
-						day: 'numeric'
-					});
 					return createRender(DataTableDateCell, {
-						startDate: startDate,
-						endDate: endDate
+						startDate: formatDate(value),
+						endDate: formatDate(row.original.start_date)
 					});
 				}
 				return value;
+			},
+			plugins: {
+				filter: {
+					getFilterValue: formatDate
+				}
 			}
 		}),
 		table.column({
@@ -124,7 +138,6 @@
 				}
 			}
 		}),
-
 		table.column({
 			accessor: 'return_rate',
 			header: 'Return Rate',
