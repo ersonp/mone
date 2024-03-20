@@ -70,6 +70,16 @@
 			}
 		}),
 		table.column({
+			accessor: 'start_date',
+			header: 'Start Date',
+			cell: ({ value }) => value,
+			plugins: {
+				filter: {
+					getFilterValue: formatDate
+				}
+			}
+		}),
+		table.column({
 			accessor: 'end_date',
 			header: 'Dates',
 			id: 'dates',
