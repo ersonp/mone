@@ -1,20 +1,25 @@
 <script lang="ts">
-	import { Input } from '$lib/components/ui/input';
-	import { investmentSchema, type InvestmentSchema } from '../(data)/schemas';
-	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
+	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import { Input } from '$lib/components/ui/input';
 	import * as Form from '$lib/components/ui/form';
+	import Dropdown from '../../(components)/dropdown.svelte';
+	import { investmentSchema, type InvestmentSchema } from '../(data)/schemas';
 	import { invTypes, returnTypes, names } from '../(data)/data.js';
 	import { DatePicker } from '.';
-	import { type DateValue, DateFormatter } from '@internationalized/date';
-	import Dropdown from '../../(components)/dropdown.svelte';
+
 	export let data: SuperValidated<Infer<InvestmentSchema>>;
 
 	const form = superForm(data, {
 		validators: zodClient(investmentSchema),
 		dataType: 'json'
 	});
+
 	const { form: formData, enhance } = form;
+
+	$: $formData.return_rate = Number($formData.return_rate);
+	$: $formData.inv_amount = Number($formData.inv_amount);
+	$: $formData.return_amount = Number($formData.return_amount);
 </script>
 
 <form method="POST" use:enhance>
@@ -82,10 +87,10 @@
 		<Form.FieldErrors />
 	</Form.Field>
 
-	<!-- Investment Amount -->
+	<!-- Inv Amount -->
 	<Form.Field {form} name="inv_amount">
 		<Form.Control let:attrs>
-			<Form.Label>Investment Amount</Form.Label>
+			<Form.Label>Inv Amount</Form.Label>
 			<Input {...attrs} bind:value={$formData.inv_amount} type="number" />
 		</Form.Control>
 		<Form.Description>The amount of money invested.</Form.Description>
