@@ -7,7 +7,9 @@
 	import Cross2 from 'svelte-radix/Cross2.svelte';
 	import { invTypes, statuses, names } from '../(data)/data.js';
 	import type { Writable } from 'svelte/store';
+	import type { PageData } from '../$types.js';
 
+	export let data: PageData;
 	export let tableModel: TableViewModel<Investment>;
 
 	const { pluginStates } = tableModel;
@@ -68,7 +70,7 @@
 			{/if}
 		</div>
 		<div class="pt-1">
-			<AddSheet />
+			<AddSheet {data} />
 		</div>
 	</div>
 

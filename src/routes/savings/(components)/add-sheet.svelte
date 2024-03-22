@@ -7,8 +7,10 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Select from '$lib/components/ui/select';
 	import { invTypes, returnTypes, statuses, names } from '../(data)/data.js';
-	import { DatePicker } from '.';
-
+	import { DatePicker, SavingsForm } from '.';
+	import type { PageData } from '../$types.js';
+	export let data: PageData;
+	console.log(data);
 	let startDate: DateValue | undefined = undefined;
 	let endDate: DateValue | undefined = undefined;
 </script>
@@ -20,20 +22,21 @@
 			<CardStackPlus class="ml-2 h-4 w-4" />
 		</Button>
 	</Sheet.Trigger>
-	<Sheet.Content side="right">
+	<Sheet.Content side="right" class="overflow-y-auto">
 		<Sheet.Header>
 			<Sheet.Title>Add Investment</Sheet.Title>
 			<Sheet.Description>Add investments here. Click save when you're done.</Sheet.Description>
 		</Sheet.Header>
-		<div class="grid gap-4 py-4">
-			<div class="grid gap-4">
+		<div class="py-4">
+			<SavingsForm data={data.form} />
+			<!-- <div class="grid gap-4">
 				<Label for="endDate">Start Date</Label>
 				<DatePicker bind:value={startDate} />
 			</div>
 			<div class="grid gap-4">
 				<Label for="endDate">End Date</Label>
 				<DatePicker bind:value={endDate} />
-			</div>
+			</div> -->
 			<div class="grid gap-4">
 				<Label for="invName">Investment Name</Label>
 				<Input id="invName" placeholder="BCCB" />
