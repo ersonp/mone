@@ -21,7 +21,15 @@
 	export let formData: any;
 	export let formValue: string;
 	export let attrs: any;
+	export let minDate = '';
 	let value: DateValue | undefined;
+	let minDateVal: DateValue | undefined;
+
+	$: if (formData[minDate]) {
+		minDateVal = parseDate(formData[minDate]);
+	} else {
+		minDateVal = new CalendarDate(1900, 1, 1);
+	}
 
 	// Initialize the year to the current year
 	let currentYear = new Date().getFullYear();
@@ -77,7 +85,7 @@
 		</div>
 		<Calendar
 			{value}
-			minValue={new CalendarDate(1900, 1, 1)}
+			minValue={minDateVal}
 			calendarLabel="Date"
 			initialFocus
 			onValueChange={(v) => {
