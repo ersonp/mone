@@ -3,11 +3,8 @@
 	import { investmentSchema, type InvestmentSchema } from '../(data)/schemas';
 	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	import CalendarIcon from 'svelte-radix/Calendar.svelte';
-	import * as Select from '$lib/components/ui/select';
 	import * as Form from '$lib/components/ui/form';
-	import { invTypes, returnTypes, statuses, names } from '../(data)/data.js';
-	// import { toast } from 'svelte-sonner';
+	import { invTypes, returnTypes, names } from '../(data)/data.js';
 	import { DatePicker } from '.';
 	import { type DateValue, DateFormatter } from '@internationalized/date';
 	import Dropdown from '../../(components)/dropdown.svelte';
@@ -17,14 +14,7 @@
 		validators: zodClient(investmentSchema),
 		dataType: 'json'
 	});
-
-	const df = new DateFormatter('en-US', {
-		dateStyle: 'long'
-	});
 	const { form: formData, enhance } = form;
-
-	let startDateValue: DateValue | undefined = undefined;
-	let endDateValue: DateValue | undefined = undefined;
 </script>
 
 <form method="POST" use:enhance>
