@@ -20,8 +20,8 @@
 	});
 	export let formData: any;
 	export let formValue: string;
-	export let value: DateValue | undefined;
 	export let attrs: any;
+	let value: DateValue | undefined;
 
 	// Initialize the year to the current year
 	let currentYear = new Date().getFullYear();
