@@ -14,3 +14,4 @@ export { default as DataTableExpandContent } from "./data-table-expand-content.s
 export { default as SavingsForm } from "./savings-form.svelte";
 export { default as AddSheet } from "./add-sheet.svelte";
 export { default as DatePicker } from "../../(components)/date-picker.svelte";
+export { default as Dropdown } from "../../(components)/dropdown.svelte";
