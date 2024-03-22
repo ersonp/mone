@@ -1,18 +1,11 @@
 <script lang="ts">
 	import * as Sheet from '$lib/components/ui/sheet';
-	import { Input } from '$lib/components/ui/input';
-	import { Label } from '$lib/components/ui/label';
 	import CardStackPlus from 'svelte-radix/CardStackPlus.svelte';
-	import { type DateValue } from '@internationalized/date';
 	import { Button } from '$lib/components/ui/button';
-	import * as Select from '$lib/components/ui/select';
-	import { invTypes, returnTypes, statuses, names } from '../(data)/data.js';
-	import { DatePicker, SavingsForm } from '.';
+	import { SavingsForm } from '.';
 	import type { PageData } from '../$types.js';
 	export let data: PageData;
 	console.log(data);
-	let startDate: DateValue | undefined = undefined;
-	let endDate: DateValue | undefined = undefined;
 </script>
 
 <Sheet.Root>
@@ -29,75 +22,11 @@
 		</Sheet.Header>
 		<div class="py-4">
 			<SavingsForm data={data.form} />
-			<!-- <div class="grid gap-4">
-				<Label for="endDate">Start Date</Label>
-				<DatePicker bind:value={startDate} />
-			</div>
-			<div class="grid gap-4">
-				<Label for="endDate">End Date</Label>
-				<DatePicker bind:value={endDate} />
-			</div> -->
-			<div class="grid gap-4">
-				<Label for="invName">Investment Name</Label>
-				<Input id="invName" placeholder="BCCB" />
-			</div>
-			<div class="grid gap-4">
-				<Label for="invType">Investment Type</Label>
-				<Select.Root>
-					<Select.Trigger>
-						<Select.Value placeholder="Select a Type" />
-					</Select.Trigger>
-					<Select.Content>
-						<Select.Group>
-							{#each invTypes as invType}
-								<Select.Item value={invType.value} label={invType.label}>
-									{invType.label}
-								</Select.Item>
-							{/each}
-						</Select.Group>
-					</Select.Content>
-					<Select.Input name="invType" />
-				</Select.Root>
-			</div>
-			<div class="grid gap-4">
-				<Label for="returnType">Return Type</Label>
-				<Select.Root>
-					<Select.Trigger>
-						<Select.Value placeholder="Select a Type" />
-					</Select.Trigger>
-					<Select.Content>
-						<Select.Group>
-							{#each returnTypes as returnType}
-								<Select.Item value={returnType.value} label={returnType.label}>
-									{returnType.label}
-								</Select.Item>
-							{/each}
-						</Select.Group>
-					</Select.Content>
-					<Select.Input name="returnType" />
-				</Select.Root>
-			</div>
-			<div class="grid gap-4">
-				<Label for="returnRate">Return Rate</Label>
-				<Input id="returnRate" placeholder="12" />
-			</div>
-			<div class="grid gap-4">
-				<Label for="invAmount">Investment Amount</Label>
-				<Input id="invAmount" placeholder="1000" />
-			</div>
-			<div class="grid gap-4">
-				<Label for="returnAmount">Return Amount</Label>
-				<Input id="returnAmount" placeholder="1200" />
-			</div>
-			<div class="grid gap-4">
-				<Label for="name">Name</Label>
-				<Input id="name" placeholder="Erson" />
-			</div>
-		</div>
-		<Sheet.Footer>
-			<Sheet.Close asChild let:builder>
-				<Button builders={[builder]} type="submit">Save</Button>
-			</Sheet.Close>
-		</Sheet.Footer>
-	</Sheet.Content>
+			<Sheet.Footer>
+				<Sheet.Close asChild let:builder>
+					<Button builders={[builder]} type="submit">Save</Button>
+				</Sheet.Close>
+			</Sheet.Footer>
+		</div></Sheet.Content
+	>
 </Sheet.Root>
