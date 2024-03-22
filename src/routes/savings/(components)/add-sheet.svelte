@@ -5,7 +5,6 @@
 	import { SavingsForm } from '.';
 	import type { PageData } from '../$types.js';
 	export let data: PageData;
-	console.log(data);
 </script>
 
 <Sheet.Root>
@@ -22,11 +21,6 @@
 		</Sheet.Header>
 		<div class="py-4">
 			<SavingsForm data={data.form} />
-			<Sheet.Footer>
-				<Sheet.Close asChild let:builder>
-					<Button builders={[builder]} type="submit">Save</Button>
-				</Sheet.Close>
-			</Sheet.Footer>
-		</div></Sheet.Content
-	>
+		</div>
+	</Sheet.Content>
 </Sheet.Root>
