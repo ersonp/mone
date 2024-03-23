@@ -22,25 +22,8 @@
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content class="w-[160px]" align="end">
 		<DropdownMenu.Item>Edit</DropdownMenu.Item>
-		<DropdownMenu.Item>Make a copy</DropdownMenu.Item>
-		<DropdownMenu.Item>Favorite</DropdownMenu.Item>
+		<DropdownMenu.Item>Renew</DropdownMenu.Item>
 		<DropdownMenu.Separator />
-		<DropdownMenu.Sub>
-			<DropdownMenu.SubTrigger>Inv Types</DropdownMenu.SubTrigger>
-			<DropdownMenu.SubContent>
-				<DropdownMenu.RadioGroup value={data.inv_type}>
-					{#each invTypes as invType}
-						<DropdownMenu.RadioItem value={invType.value}>
-							{invType.label}
-						</DropdownMenu.RadioItem>
-					{/each}
-				</DropdownMenu.RadioGroup>
-			</DropdownMenu.SubContent>
-		</DropdownMenu.Sub>
-		<DropdownMenu.Separator />
-		<DropdownMenu.Item>
-			Delete
-			<DropdownMenu.Shortcut>⌘⌫</DropdownMenu.Shortcut>
-		</DropdownMenu.Item>
+		<DropdownMenu.Item>Delete</DropdownMenu.Item>
 	</DropdownMenu.Content>
 </DropdownMenu.Root>
