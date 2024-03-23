@@ -2,7 +2,7 @@
 	import * as Sheet from '$lib/components/ui/sheet';
 	import CardStackPlus from 'svelte-radix/CardStackPlus.svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { SavingsForm } from '.';
+	import { InvestmentsForm } from '.';
 	import type { PageData } from '../$types.js';
 	export let data: PageData;
 </script>
@@ -20,7 +20,7 @@
 			<Sheet.Description>Add investments here. Click save when you're done.</Sheet.Description>
 		</Sheet.Header>
 		<div class="py-4">
-			<SavingsForm data={data.form} />
+			<InvestmentsForm data={data.form} />
 		</div>
 	</Sheet.Content>
 </Sheet.Root>
