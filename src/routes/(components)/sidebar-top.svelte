@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import PieChart from 'svelte-radix/PieChart.svelte';
-	import Transactions from '$lib/icons/transactions.svelte';
 	import Investments from '$lib/icons/investments.svelte';
+	import { HandCoins } from 'lucide-svelte';
 
 	export let isOpen: boolean;
 </script>
@@ -30,7 +30,7 @@
 				? 'bg-primary text-secondary rounded '
 				: undefined}"
 		>
-			<Transactions />
+			<HandCoins />
 			<span class="{isOpen ? undefined : 'md:hidden'} pl-4"> Accounts </span>
 		</li>
 	</a>
