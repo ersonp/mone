@@ -5,7 +5,7 @@
 	export let data: PageData;
 </script>
 
-<div class="h-screen flex-1 flex-col space-y-8 p-5 overflow-y-auto">
+<div class="h-screen flex-1 flex-col space-y-8 p-5">
 	<div class="flex items-center justify-between space-y-2">
 		<div>
 			<h2 class="text-2xl font-bold tracking-tight">Welcome back!</h2>
@@ -13,5 +13,5 @@
 		</div>
 	</div>
 	<DataTable {tableData} {data} />
-	<div class="overflow-y-auto p-2"></div>
+	<div class="p-1"></div>
 </div>

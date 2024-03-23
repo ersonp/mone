@@ -34,7 +34,7 @@
 
 <div class="flex flex-col space-y-2">
 	<div class="flex flex-wrap">
-		<div class="w-full md:w-1/2 lg:w-1/3 pr-1 pt-1">
+		<div class="w-full md:w-1/2 lg:w-1/3 pt-1">
 			<Input placeholder="Filter..." class="h-8 " type="search" bind:value={$filterValue} />
 		</div>
 	</div>
