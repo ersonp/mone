@@ -25,10 +25,8 @@
 	} from '.';
 
 	import type { Investment } from '../(data)/schemas.js';
-	import type { PageData } from '../$types.js';
 
-	export let data: PageData;
-	export let tableData: Investment[];
+	export let data: Investment[];
 
 	function formatDate(value: string) {
 		const date = new Date(value);
@@ -39,7 +37,7 @@
 		});
 	}
 
-	const table = createTable(readable(tableData), {
+	const table = createTable(readable(data), {
 		select: addSelectedRows(),
 		sort: addSortBy({
 			toggleOrder: ['asc', 'desc']
@@ -243,7 +241,7 @@
 </script>
 
 <div class="space-y-3">
-	<DataTableToolbar {tableModel} {data} />
+	<DataTableToolbar {tableModel} />
 	<div class="rounded-md border">
 		<Table.Root {...$tableAttrs}>
 			<Table.Header>
