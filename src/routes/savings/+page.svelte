@@ -1,8 +1,6 @@
 <script lang="ts">
 	import DataTable from './(components)/data-table.svelte';
-	import tableData from './(data)/investments.json';
-	import type { PageData } from './$types.js';
-	export let data: PageData;
+	import data from './(data)/investments.json';
 </script>
 
 <div class="h-screen flex-1 flex-col space-y-8 p-5 overflow-y-auto">
@@ -12,6 +10,6 @@
 			<p class="text-muted-foreground">Here's a list of your investments for this month!</p>
 		</div>
 	</div>
-	<DataTable {tableData} {data} />
+	<DataTable {data} />
 	<div class="overflow-y-auto p-2"></div>
 </div>

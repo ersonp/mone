@@ -18,17 +18,6 @@ export const invTypes = [
     },
 ];
 
-export const returnTypes = [
-    {
-        value: "Cumulative",
-        label: "Cumulative",
-    },
-    {
-        value: "Ordinary",
-        label: "Ordinary",
-    },
-];
-
 export const statuses = [
     {
         value: "Withdrawn",
