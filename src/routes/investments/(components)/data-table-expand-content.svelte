@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { investmentSchema, type Investment } from '../(data)/schemas.js';
-	import { DataTableNameCell, DataTableStatusCell } from '.';
-	import PlusCircled from 'svelte-radix/PlusCircled.svelte';
-	import Button from '$lib/components/ui/button/button.svelte';
+	import { DataTableNameCell, DataTableStatusCell, DataTableRowActions } from '.';
+	import { Button } from '$lib/components/ui/button';
+
 	export let expanded: Investment;
 	const data = investmentSchema.parse(expanded);
 	let cDate = new Date(data.created_at);
@@ -54,5 +54,8 @@
 	</div>
 	<div class="p-2">
 		<Button variant="outline">Open</Button>
+	</div>
+	<div class="p-2 flex flex-col md:hidden">
+		<DataTableRowActions row={expanded} />
 	</div>
 </div>

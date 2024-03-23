@@ -2,7 +2,6 @@
 	import DotsHorizontal from 'svelte-radix/DotsHorizontal.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	import { invTypes } from '../(data)/data.js';
 	import { investmentSchema, type Investment } from '../(data)/schemas.js';
 
 	export let row: Investment;
