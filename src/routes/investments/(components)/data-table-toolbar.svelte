@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { Input } from '$lib/components/ui/input';
 	import { DataTableFacetedFilter, DataTableViewOptions, AddSheet } from '.';
-	import type { Investment } from '../(data)/schemas.js';
 	import type { TableViewModel } from 'svelte-headless-table';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Cross2 from 'svelte-radix/Cross2.svelte';
 	import { invTypes, statuses, names } from '../(data)/data.js';
 	import type { Writable } from 'svelte/store';
-	import type { PageData } from '../$types.js';
+	import { investmentSchema, type Investment } from '../(data)/schemas.js';
+	import { superValidate, type SuperValidated } from 'sveltekit-superforms';
+	import { zod } from 'sveltekit-superforms/adapters';
 
-	export let data: PageData;
 	export let tableModel: TableViewModel<Investment>;
 
 	const { pluginStates } = tableModel;
@@ -70,7 +70,7 @@
 			{/if}
 		</div>
 		<div class="pt-1">
-			<AddSheet {data} />
+			<AddSheet />
 		</div>
 	</div>
 

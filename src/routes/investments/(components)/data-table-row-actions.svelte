@@ -3,9 +3,11 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { investmentSchema, type Investment } from '../(data)/schemas.js';
+	import { EditSheet } from '.';
+	import { superValidate, type SuperValidated } from 'sveltekit-superforms';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	export let row: Investment;
-	const data = investmentSchema.parse(row);
 </script>
 
 <DropdownMenu.Root>
@@ -20,9 +22,10 @@
 		</Button>
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content class="w-[160px]" align="end">
-		<DropdownMenu.Item>Edit</DropdownMenu.Item>
+		<DropdownMenu.Item><EditSheet {row} /></DropdownMenu.Item>
 		<DropdownMenu.Item>Renew</DropdownMenu.Item>
 		<DropdownMenu.Separator />
 		<DropdownMenu.Item>Delete</DropdownMenu.Item>
 	</DropdownMenu.Content>
 </DropdownMenu.Root>
+<EditSheet bind:row />

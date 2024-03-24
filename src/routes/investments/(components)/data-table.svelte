@@ -25,9 +25,7 @@
 	} from '.';
 
 	import type { Investment } from '../(data)/schemas.js';
-	import type { PageData } from '../$types.js';
 
-	export let data: PageData;
 	export let tableData: Investment[];
 
 	function formatDate(value: string) {
@@ -243,7 +241,7 @@
 </script>
 
 <div class="space-y-3">
-	<DataTableToolbar {tableModel} {data} />
+	<DataTableToolbar {tableModel} />
 	<div class="rounded-md border">
 		<Table.Root {...$tableAttrs}>
 			<Table.Header>
