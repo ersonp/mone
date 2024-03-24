@@ -5,7 +5,8 @@
 		DataTableStatusCell,
 		EditSheet,
 		RenewSheet,
-		DataTableCloseAlert
+		DataTableCloseAlert,
+		DataTableDeleteAlert
 	} from '.';
 	import { Button } from '$lib/components/ui/button';
 	import CaretSort from 'svelte-radix/CaretSort.svelte';
@@ -74,11 +75,11 @@
 					</Button>
 				</Collapsible.Trigger>
 			</div>
-			<EditSheet bind:row={expanded} />
+			<RenewSheet bind:row={expanded} />
 			<Collapsible.Content class="space-y-2">
-				<RenewSheet bind:row={expanded} />
+				<EditSheet bind:row={expanded} />
 				<DataTableCloseAlert />
-				<div class="rounded-md border px-4 py-3 font-mono text-sm">Delete</div>
+				<DataTableDeleteAlert />
 			</Collapsible.Content>
 		</Collapsible.Root>
 	</div>

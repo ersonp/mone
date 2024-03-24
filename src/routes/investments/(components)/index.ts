@@ -15,5 +15,6 @@ export { default as AddSheet } from "./add-sheet.svelte";
 export { default as EditSheet } from "./edit-sheet.svelte";
 export { default as RenewSheet } from "./renew-sheet.svelte";
 export { default as DataTableCloseAlert } from "./data-table-close-alert.svelte";
+export { default as DataTableDeleteAlert } from "./data-table-delete-alert.svelte";
 export { default as DatePicker } from "../../(components)/date-picker.svelte";
 export { default as Dropdown } from "../../(components)/dropdown.svelte";
