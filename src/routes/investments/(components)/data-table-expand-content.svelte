@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { investmentSchema, type Investment } from '../(data)/schemas.js';
-	import { DataTableNameCell, DataTableStatusCell, EditSheet } from '.';
+	import {
+		DataTableNameCell,
+		DataTableStatusCell,
+		EditSheet,
+		RenewSheet,
+		DataTableCloseAlert
+	} from '.';
 	import { Button } from '$lib/components/ui/button';
 	import CaretSort from 'svelte-radix/CaretSort.svelte';
+	import * as AlertDialog from '$lib/components/ui/alert-dialog/index.js';
 	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
 	export let expanded: Investment;
 	const data = investmentSchema.parse(expanded);
@@ -69,8 +76,8 @@
 			</div>
 			<EditSheet bind:row={expanded} />
 			<Collapsible.Content class="space-y-2">
-				<div class="rounded-md border px-4 py-3 font-mono text-sm">Renew</div>
-				<div class="rounded-md border px-4 py-3 font-mono text-sm">Close</div>
+				<RenewSheet bind:row={expanded} />
+				<DataTableCloseAlert />
 				<div class="rounded-md border px-4 py-3 font-mono text-sm">Delete</div>
 			</Collapsible.Content>
 		</Collapsible.Root>
