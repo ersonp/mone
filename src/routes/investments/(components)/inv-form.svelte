@@ -16,11 +16,6 @@
 	});
 
 	const { form: formData, enhance } = form;
-
-	// TODO(ersonp): move this to submit handler
-	// $: $formData.return_rate = Number($formData.return_rate);
-	// $: $formData.inv_amount = Number($formData.inv_amount);
-	// $: $formData.return_amount = Number($formData.return_amount);
 </script>
 
 <form method="POST" use:enhance>
