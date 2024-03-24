@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { investmentSchema, type Investment } from '../(data)/schemas.js';
-	import { DataTableNameCell, DataTableStatusCell, DataTableRowActions } from '.';
+	import { DataTableNameCell, DataTableStatusCell, EditSheet } from '.';
 	import { Button } from '$lib/components/ui/button';
-
+	import CaretSort from 'svelte-radix/CaretSort.svelte';
+	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
 	export let expanded: Investment;
 	const data = investmentSchema.parse(expanded);
 	let cDate = new Date(data.created_at);
@@ -55,7 +56,23 @@
 	<div class="p-2">
 		<Button variant="outline">Open</Button>
 	</div>
-	<div class="p-2 flex flex-col md:hidden">
-		<DataTableRowActions row={expanded} />
+	<div class="p-2">
+		<Collapsible.Root class="space-y-2">
+			<div class="flex items-center justify-between space-x-4 pr-4">
+				<h4 class="text-sm text-muted-foreground">Actions</h4>
+				<Collapsible.Trigger asChild let:builder>
+					<Button builders={[builder]} variant="ghost" size="sm" class="w-9 p-0">
+						<CaretSort class="h-4 w-4" />
+						<span class="sr-only">Toggle</span>
+					</Button>
+				</Collapsible.Trigger>
+			</div>
+			<EditSheet bind:row={expanded} />
+			<Collapsible.Content class="space-y-2">
+				<div class="rounded-md border px-4 py-3 font-mono text-sm">Renew</div>
+				<div class="rounded-md border px-4 py-3 font-mono text-sm">Close</div>
+				<div class="rounded-md border px-4 py-3 font-mono text-sm">Delete</div>
+			</Collapsible.Content>
+		</Collapsible.Root>
 	</div>
 </div>

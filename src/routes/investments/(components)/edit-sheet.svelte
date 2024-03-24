@@ -15,7 +15,11 @@
 </script>
 
 <Sheet.Root>
-	<Sheet.Trigger>Edit</Sheet.Trigger>
+	<Sheet.Trigger
+		class="text-left rounded-md border px-4 py-3 font-semibold leading-none tracking-tight w-full"
+	>
+		Edit
+	</Sheet.Trigger>
 	<Sheet.Content side="right" class="overflow-y-auto">
 		<Sheet.Header>
 			<Sheet.Title>Edit Investment</Sheet.Title>
