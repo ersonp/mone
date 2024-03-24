@@ -6,10 +6,21 @@
 	import { zod } from 'sveltekit-superforms/adapters';
 	export let row: Investment;
 
+	let renewRow = JSON.parse(JSON.stringify(row));
+	renewRow.id = '';
+	renewRow.created_at = '';
+	renewRow.updated_at = '';
+	renewRow.start_date = row.end_date;
+	renewRow.end_date = '';
+	renewRow.return_rate = 0;
+	renewRow.inv_amount = row.return_amount;
+	renewRow.return_amount = 0;
+	renewRow.inv_status = 'Renewed';
+
 	let validatedData: SuperValidated<Investment>;
 
 	const validateData = async () => {
-		validatedData = await superValidate(row, zod(investmentSchema));
+		validatedData = await superValidate(renewRow, zod(investmentSchema));
 	};
 	$: validateData();
 </script>

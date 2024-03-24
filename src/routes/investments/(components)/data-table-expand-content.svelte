@@ -10,10 +10,11 @@
 	} from '.';
 	import { Button } from '$lib/components/ui/button';
 	import CaretSort from 'svelte-radix/CaretSort.svelte';
-	import * as AlertDialog from '$lib/components/ui/alert-dialog/index.js';
-	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
+	import * as Collapsible from '$lib/components/ui/collapsible';
+
 	export let expanded: Investment;
 	const data = investmentSchema.parse(expanded);
+
 	let cDate = new Date(data.created_at);
 	const createdAt = cDate.toLocaleDateString('en-US', {
 		year: 'numeric',
@@ -75,9 +76,9 @@
 					</Button>
 				</Collapsible.Trigger>
 			</div>
-			<RenewSheet bind:row={expanded} />
+			<RenewSheet row={expanded} />
 			<Collapsible.Content class="space-y-2">
-				<EditSheet bind:row={expanded} />
+				<EditSheet row={expanded} />
 				<DataTableCloseAlert />
 				<DataTableDeleteAlert />
 			</Collapsible.Content>
