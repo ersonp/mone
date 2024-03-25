@@ -43,6 +43,6 @@
 		{/if}
 	</Card.Content>
 	<Card.Footer>
-		<Button class="w-full" on:click={() => goto('/savings')}>Continue</Button>
+		<Button class="w-full" on:click={() => goto('/investments')}>Continue</Button>
 	</Card.Footer>
 </Card.Root>

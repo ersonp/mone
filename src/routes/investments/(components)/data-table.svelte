@@ -15,20 +15,23 @@
 		DataTableDateCell,
 		DataTableInvNameCell,
 		DataTableStatusCell,
-		DataTableRowActions,
 		DataTableNameCell,
 		DataTableColumnHeader,
 		DataTableToolbar,
 		DataTablePagination,
 		DataTableExpandCell,
-		DataTableExpandContent
+		DataTableExpandContent,
+		DataTableViewOptions
 	} from '.';
 
 	import type { Investment } from '../(data)/schemas.js';
-	import type { PageData } from '../$types.js';
 
-	export let data: PageData;
 	export let tableData: Investment[];
+	export let tableLite = false;
+	let expandLite = false;
+	if (tableLite) {
+		expandLite = true;
+	}
 
 	function formatDate(value: string) {
 		const date = new Date(value);
@@ -219,20 +222,6 @@
 					exclude: true
 				}
 			}
-		}),
-		table.display({
-			id: 'actions',
-			header: () => {
-				return '';
-			},
-			cell: ({ row }) => {
-				if (row.isData() && row.original) {
-					return createRender(DataTableRowActions, {
-						row: row.original
-					});
-				}
-				return '';
-			}
 		})
 	]);
 
@@ -243,7 +232,10 @@
 </script>
 
 <div class="space-y-3">
-	<DataTableToolbar {tableModel} {data} />
+	<DataTableViewOptions {tableModel} />
+	{#if !tableLite}
+		<DataTableToolbar {tableModel} />
+	{/if}
 	<div class="rounded-md border">
 		<Table.Root {...$tableAttrs}>
 			<Table.Header>
@@ -254,9 +246,9 @@
 								<Subscribe attrs={cell.attrs()} let:attrs props={cell.props()} let:props>
 									<Table.Head {...attrs}>
 										{#if cell.id !== 'select' && cell.id !== 'actions'}
-											<DataTableColumnHeader {props}
-												><Render of={cell.render()} /></DataTableColumnHeader
-											>
+											<DataTableColumnHeader {props}>
+												<Render of={cell.render()} />
+											</DataTableColumnHeader>
 										{:else}
 											<Render of={cell.render()} />
 										{/if}
@@ -288,7 +280,7 @@
 							<Table.Row>
 								<Table.Cell></Table.Cell>
 								<Table.Cell colspan={9}>
-									<DataTableExpandContent expanded={row.original} />
+									<DataTableExpandContent expanded={row.original} {expandLite} />
 								</Table.Cell>
 							</Table.Row>
 						{/if}
