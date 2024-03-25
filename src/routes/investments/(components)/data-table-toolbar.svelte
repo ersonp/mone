@@ -73,6 +73,4 @@
 			<AddSheet />
 		</div>
 	</div>
-
-	<DataTableViewOptions {tableModel} />
 </div>
