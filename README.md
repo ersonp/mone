@@ -35,3 +35,9 @@ npm run tauri dev
   - [ ] Select databases from landing page
 - [ ] API
   - [ ] Add a check to see if the URL is valid
+- [ ] Tauri
+  - [ ] Fix
+    ```
+    RemoteLayerTreeDrawingAreaProxyMac::scheduleDisplayLink(): page has no displayID
+    2024-03-25 12:33:36.605 mone[72959:46565387] WARNING: Secure coding is automatically enabled for restorable state! However, not on all supported macOS versions of this application. Opt-in to secure coding explicitly by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState:.
+    ```
